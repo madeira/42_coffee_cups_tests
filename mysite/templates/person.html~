@@ -1,0 +1,11 @@
+<html>
+<head>
+<title>My profile</title>
+</head>
+<body>
+<h1>My name is {{first_name}} {{last_name}}</h1>
+<h2>My birthday {{date}}</h2>
+<h3>My biography {{bio}}</h3>
+<h3>My mail {{mail}}</h3>
+</body>
+</html>

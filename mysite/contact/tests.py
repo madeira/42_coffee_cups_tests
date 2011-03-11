@@ -3,6 +3,7 @@ from django.test import TestCase
 from mysite.contact.models import Persone
 import unittest
 
+
 class ContactTest(TestCase):
     fixtures=['initial_data.json']
 
@@ -19,4 +20,10 @@ class ContactTest(TestCase):
         self.contact.delete()
         contact_count2=Persone.objects.all()
         self.assertEqual(self.count, contact_count2.count())
- 
+
+    def test_http(self):
+        response = self.client.get('/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertContains(response, 'Ganziy', count=1, status_code=200, msg_prefix='')
+        self.assertContains(response, 'ganziy.vova@gmail.com', count=1, status_code=200, msg_prefix='')
+        self.assertTemplateUsed(response, 'persone.html', msg_prefix='')
