@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="media/css/main.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/media/css/main.css" type="text/css" media="screen"/>
 
     </script>
         <title>{% block title %} Persone {% endblock %}</title>
@@ -25,8 +25,10 @@
                 <span>Skype: {{persone.skype}}</span><br/>
                 <span>Other contacts: {{persone.other}}</span>
             </div>
-            <hr/>
-            <a class="href" href="/call/">request</a>
+            <div class="href" >            
+                <hr/>
+                <a href="/call/">request</a>
+            </div>
         {% endblock %}
         </div>
     </body>

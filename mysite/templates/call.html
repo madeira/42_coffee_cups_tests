@@ -3,6 +3,10 @@
 request
 {% endblock %}
 {% block body %}
+<br/>
+<a href="/">
+<--- back
+</a><br/><br/>
 {% for item in call %}
 <span> id request {{item.id}}</span><br/>
 <span>user ip {{item.user_ip}}</span><br/>
