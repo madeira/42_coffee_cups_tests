@@ -73,6 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'mysite.call_list.middleware.CallMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -92,4 +93,5 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'mysite.contact',
+    'mysite.call_list',
 )

@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="media/css/main.css" type="text/css" media="screen"/>
 
     </script>
-        <title>Persone</title>
+        <title>{% block title %} Persone {% endblock %}</title>
 </head>
     <body>
         <div id="wraper">
+         {% block body %}
             <div id="header">
             <h1>42 Coffee Cups Test Assignment</h1>
             </div>
@@ -24,6 +25,9 @@
                 <span>Skype: {{persone.skype}}</span><br/>
                 <span>Other contacts: {{persone.other}}</span>
             </div>
+            <hr/>
+            <a class="href" href="/call/">request</a>
+        {% endblock %}
         </div>
     </body>
 </html>
