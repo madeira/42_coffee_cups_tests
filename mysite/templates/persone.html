@@ -1,11 +1,29 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>My profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="media/css/main.css" type="text/css" media="screen"/>
+
+    </script>
+        <title>Persone</title>
 </head>
-<body>
-<h1>My name is {{persone.first_name}} {{persone.last_name}}</h1>
-<h2>My birthday {{persone.date}}</h2>
-<h3>My biography {{persone.bio}}</h3>
-<h3>My mail {{persone.mail}}</h3>
-</body>
+    <body>
+        <div id="wraper">
+            <div id="header">
+            <h1>42 Coffee Cups Test Assignment</h1>
+            </div>
+            <div id="right_collum">
+                <span>Name: {{persone.first_name}}</span><br/>
+                <span>Last name: {{persone.last_name}}</span><br/>
+                <span>Date of birth: {{persone.date}}</span><br/>
+                <span>Bio: {{persone.bio}}</span><br/>
+            </div>
+            <div id="left_collum">
+                <span>Email: {{persone.mail}}</span><br/>
+                <span>Jabber: {{persone.jabber}}</span><br/>
+                <span>Skype: {{persone.skype}}</span><br/>
+                <span>Other contacts: {{persone.other}}</span>
+            </div>
+        </div>
+    </body>
 </html>

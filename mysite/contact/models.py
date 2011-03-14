@@ -7,6 +7,9 @@ class Persone (models.Model):
     date=models.DateField()
     bio=models.TextField()
     mail=models.EmailField()
+    jabber=models.CharField(max_length=30)
+    skype=models.CharField(max_length=30)
+    other=models.CharField(max_length=30)
 
     def __unicode__(self):
         return self.last_name
