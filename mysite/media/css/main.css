@@ -7,7 +7,7 @@ body{
 img{border-style:none;}
 a{
         text-decoration:none;
-        color:#aaa;
+        color:#111;
 }
 a:hover{text-decoration:underline;}
 input, textarea, select{
@@ -34,4 +34,10 @@ form, fieldset{
 }
 #left_collum{
 	float:left;
+    width:300px;
+}
+.href{
+    padding-top:20px;
+    width:600px;    
+    overflow:hidden;
 }
