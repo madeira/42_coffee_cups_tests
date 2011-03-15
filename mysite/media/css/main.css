@@ -1,0 +1,37 @@
+body{
+    margin:0;
+    color:#333;
+    font:14px cursive;
+    background:#aea4a4; 
+}
+img{border-style:none;}
+a{
+        text-decoration:none;
+        color:#aaa;
+}
+a:hover{text-decoration:underline;}
+input, textarea, select{
+    font:100% arial,sans-serif;
+    vertical-align:middle;
+}
+form, fieldset{
+    margin:0;
+    padding:0;
+    border-style:none;
+}
+#wraper{
+    margin:0 auto;
+    width:600px;
+
+}
+#header{
+	margin:0 auto;
+	width:600px;
+}
+#right_collum{
+	float:left;
+	width:300px;
+}
+#left_collum{
+	float:left;
+}

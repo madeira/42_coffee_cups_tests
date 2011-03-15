@@ -1,0 +1,16 @@
+[
+    {
+        "pk": 1, 
+        "model": "contact.persone", 
+        "fields": {
+            "bio": "its fine", 
+            "first_name": "Vladimir", 
+            "last_name": "Ganziy", 
+            "other": "other", 
+            "skype": "madeira1986", 
+            "date": "1986-09-24", 
+            "mail": "ganziy.vova@gmail.com", 
+            "jabber": "ganziy.vova"
+        }
+    }
+]
