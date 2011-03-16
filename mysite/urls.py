@@ -7,8 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^$', views.show_persone),
+    (r'^$', views.show_person),
 )
 if settings.DEBUG == True:
     urlpatterns += patterns('', (r'^%s(?P<path>.*)$' % settings.MEDIA_URL,
-         'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}), )
+                                 'django.views.static.serve',
+                                 {'document_root': settings.MEDIA_ROOT}), )
