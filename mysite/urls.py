@@ -6,9 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^$', "contact.views.show_persone"),
-    (r'^call/$', "call_list.views.call_list"),
-    (r'^$', views.show_person),
+    (r'^$', "contact.views.show_person"),
 )
 if settings.DEBUG == True:
     urlpatterns += patterns('', (r'^%s(?P<path>.*)$' % settings.MEDIA_URL,

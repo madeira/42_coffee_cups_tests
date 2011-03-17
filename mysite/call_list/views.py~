@@ -1,7 +1,0 @@
-from django.shortcuts import render_to_response
-from mysite.middelware.models import Middelwares
-
-
-def call_list(request):
-    call = Middelwares.objects.all().order_by('-id')[:10]
-    return render_to_response("call.html", {"call": call})
