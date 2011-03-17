@@ -1,0 +1,34 @@
+[
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "admin", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2011-03-16 06:27:03", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$5a2e9$9603faf12ba485e030df762a7e4d1600d69a9957", 
+            "email": "admin@admin.ru", 
+            "date_joined": "2011-03-16 05:39:33"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "contact.person", 
+        "fields": {
+            "bio": "its fine", 
+            "first_name": "Vladimir", 
+            "last_name": "Ganziy", 
+            "other": "other", 
+            "skype": "madeira1986", 
+            "date": "1986-09-24", 
+            "mail": "ganziy.vova@gmail.com", 
+            "jabber": "ganziy.vova"
+        }
+    }
+]

@@ -1,15 +1,21 @@
 body{
     margin:0;
     color:#333;
-    font:14px cursive;
-    background:#aea4a4; 
+    font:14px;
+    background:#aea4a4;
 }
-img{border-style:none;}
+img{
+border-style:none;
+}
 a{
-        text-decoration:none;
-        color:#111;
+    text-decoration:none;
+    color:#111;
+    text-decoration:none;
+    color:#aaa;
 }
-a:hover{text-decoration:underline;}
+a:hover{
+    text-decoration:underline;
+}
 input, textarea, select{
     font:100% arial,sans-serif;
     vertical-align:middle;
@@ -22,22 +28,25 @@ form, fieldset{
 #wraper{
     margin:0 auto;
     width:600px;
-
 }
 #header{
-	margin:0 auto;
-	width:600px;
+    margin:0 auto;
+    width:600px;
 }
 #right_collum{
-	float:left;
-	width:300px;
+    float:left;
+    width:300px;
 }
 #left_collum{
-	float:left;
+    float:left;
     width:300px;
 }
 .href{
     padding-top:20px;
-    width:600px;    
+    width:600px;
     overflow:hidden;
+    float:left;
+}
+.error{
+    color:red;
 }

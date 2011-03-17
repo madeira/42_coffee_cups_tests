@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="media/css/main.css" type="text/css" media="screen"/>
+
+    </script>
+        <title>{% block title %}Persone{% endblock %}</title>
+</head>
+    <body>
+        <div id="wraper">
+            <div id="header">
+            <h1>42 Coffee Cups Test Assignment</h1>
+            </div>
+            {% block body %}
+            <div id="right_collum">
+                <span>Name: {{person.first_name}}</span><br/>
+                <span>Last name: {{person.last_name}}</span><br/>
+                <span>Date of birth: {{person.date}}</span><br/>
+                <span>Bio: {{person.bio}}</span><br/>
+            </div>
+            <div id="left_collum">
+                <span>Email: {{person.mail}}</span><br/>
+                <span>Jabber: {{person.jabber}}</span><br/>
+                <span>Skype: {{person.skype}}</span><br/>
+                <span>Other contacts: {{person.other}}</span>
+            </div>
+            {% endblock %}
+        </div>
+    </body>
+</html>
