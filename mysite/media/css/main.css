@@ -12,7 +12,7 @@ a{
     color:#aaa;
 }
 a:hover{
-text-decoration:underline;
+    text-decoration:underline;
 }
 input, textarea, select{
     font:100% arial,sans-serif;
@@ -37,4 +37,7 @@ form, fieldset{
 }
 #left_collum{
     float:left;
+}
+.error{
+    color:red;
 }
