@@ -10,8 +10,6 @@ border-style:none;
 a{
     text-decoration:none;
     color:#111;
-    text-decoration:none;
-    color:#aaa;
 }
 a:hover{
     text-decoration:underline;
@@ -47,6 +45,10 @@ form, fieldset{
     overflow:hidden;
     float:left;
 }
+.href a{
+    color:#111;
+}
+
 .error{
     color:red;
 }
