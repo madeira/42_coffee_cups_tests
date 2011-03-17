@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^$', "contact.views.show_person"),
     (r'^request/$', "requestlog.views.request_list"),
+    (r'^processor/$', "mysite.views.show_settings"),
 )
 if settings.DEBUG == True:
     urlpatterns += patterns('', (r'^%s(?P<path>.*)$' % settings.MEDIA_URL,
