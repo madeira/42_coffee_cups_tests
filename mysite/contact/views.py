@@ -1,14 +1,13 @@
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.shortcuts import render_to_response
 from mysite.contact.models import Person
 
 
 def show_person(request):
-    try:
-        person = Person.objects.get(last_name="Ganziy")
-    except  ObjectDoesNotExist:
-        person = None
-    except MultipleObjectsReturned:
-        person = None
+    results = {}
 
-    return render_to_response('base.html', {'person': person})
+    try:
+        results['person'] = Person.objects.get(last_name="Ganziy")
+    except  (Person.DoesNotExist, Person.MultipleObjectsReturned), e:
+        results['error'] = e
+
+    return render_to_response('base.html', results)
