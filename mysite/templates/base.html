@@ -13,7 +13,8 @@
             <h1>42 Coffee Cups Test Assignment</h1>
             </div>
             {% block body %}
-            <div id="right_collum">
+            {% if person  %}
+	    <div id="right_collum">
                 <span>Name: {{person.first_name}}</span><br/>
                 <span>Last name: {{person.last_name}}</span><br/>
                 <span>Date of birth: {{person.date}}</span><br/>
@@ -25,12 +26,18 @@
                 <span>Skype: {{person.skype}}</span><br/>
                 <span>Other contacts: {{person.other}}</span>
             </div>
-            <div class="href" >            
-                <hr/>
-                <a href="/request/">request</a><br/>
-		<a href="/processor/">context processor</a>
             </div>
-            {% endblock %}
+	    {% else %}
+	    <div class="error">
+	      ERROR incorrectly populated the database
+	    </div>
+	    {% endif %}
+        <div class="href" >            
+            <hr/>
+            <a href="/request/">request</a><br/>
+      		<a href="/processor/">context processor</a>
+        </div>
+	    {% endblock %}
         </div>
     </body>
 </html>
