@@ -26,17 +26,16 @@
                 <span>Skype: {{person.skype}}</span><br/>
                 <span>Other contacts: {{person.other}}</span>
             </div>
-            </div>
 	    {% else %}
 	    <div class="error">
 	      ERROR incorrectly populated the database
 	    </div>
 	    {% endif %}
-        <div class="href" >            
-            <hr/>
-            <a href="/request/">request</a><br/>
-      		<a href="/processor/">context processor</a>
-        </div>
+            <div class="href" >            
+              <hr/>
+              <a href="/request/">request</a><br/>
+      	      <a href="/processor/">context processor</a>
+            </div>
 	    {% endblock %}
         </div>
     </body>
