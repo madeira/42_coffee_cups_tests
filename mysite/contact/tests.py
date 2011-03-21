@@ -8,7 +8,7 @@ class ContactTest(TestCase):
     def test_http(self):
         response = self.client.get('/')
         self.failUnlessEqual(response.status_code, 200)
-        contact=Person.objects.get(last_name="Ganziy")
+        contact = Person.objects.get(last_name="Ganziy")
         self.assertContains(response, contact.first_name)
         self.assertContains(response, contact.last_name)
         self.assertContains(response, 'Sept. 24, 1986')
@@ -20,7 +20,7 @@ class ContactTest(TestCase):
         self.assertTemplateUsed(response, 'base.html')
 
     def test_error_multipleobjectsreturned(self):
-        self.contact=Person.objects.create(last_name="Ganziy", date="1986-09-24")
+        self.contact = Person.objects.create(last_name="Ganziy", date="1986-09-24")
         response = self.client.get('/')
         self.failUnlessEqual(response.status_code, 200)
         self.assertContains(response, 'returned more than one Person')
