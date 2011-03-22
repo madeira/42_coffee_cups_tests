@@ -14,9 +14,13 @@
             </div>
             {% block body %}
             {% if person  %}
-	    <div class="href" >            
+	    <div class="href" >  
               <hr/>
-              <a href="/login/">login</a><br/>
+              {% if request_user %}
+	      <a href="logout/">logout </a>| <a href="/edit/">edit</a><br/>
+	      {% else  %}
+	      <a href="/accounts/login/">login</a><br/>
+	      {% endif %}
 	      <hr/>
             </div>
 	    <div id="right_collum">

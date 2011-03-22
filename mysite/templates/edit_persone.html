@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Edit contact{% endblock title %}
+{% block body %}
+<form action="" method="POST">
+{% csrf_token %}
+    {% for field in form %}
+        {% if forloop.counter == 5 %}
+        {% endif %}
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <strong>{{ error|escape }}</strong>
+            {% endfor %}
+        {% endif %}
+            {{ field.label_tag }}:<br/>
+            {{ field }}<br/>
+            {{ field.help_text }}
+    {% endfor %}
+<input value="Save" name="Form_save" type="submit" />
+<a href="/">Cancel</a>
+</div>
+{% endblock body %}
+{% block context %}
+{% endblock context %}
