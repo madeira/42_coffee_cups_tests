@@ -109,3 +109,5 @@ INSTALLED_APPS = (
     'mysite.contact',
     'mysite.requestlog',
 )
+
+LOGIN_REDIRECT_URL = '/edit/'

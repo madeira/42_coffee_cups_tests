@@ -41,3 +41,36 @@ class ContactTest(TestCase):
         self.failUnlessEqual(response.status_code, 200)
         self.assertContains(response, 'Person matching query does not exist')
         self.assertTemplateUsed(response, 'base.html')
+
+    def test_login(self):
+        response = self.client.get('/accounts/login/')
+        self.failUnlessEqual(response.status_code, 200)
+        response = self.client.login(username='username', password='password')
+        self.assertEqual(response, False)
+        response = self.client.get('/edit/')
+        self.failUnlessEqual(response.status_code, 302)
+        response = self.client.login(username='admin', password='admin')
+        self.assertEqual(response, True)
+        response = self.client.get('/edit/')
+        self.failUnlessEqual(response.status_code, 200)
+        response = self.client.post('/edit/', {'first_name': '', 'last_name': 'Ganziy',
+                                               'date': '1986-09', 'bio': 'Dmitry',
+                                               'mail': 'Dmitry', 'jabber': 'Dmitry',
+                                               'skype': 'Dmitry', 'other': 'Dmitry'})
+        self.assertContains(response, 'This field is required')
+        self.assertContains(response, 'Enter a valid date')
+        self.assertContains(response, 'Enter a valid e-mail address')
+        self.failUnlessEqual(response.status_code, 200)
+        response = self.client.post('/edit/', {'first_name': 'Dmitry', 'last_name': 'Ganziy',
+                                               'date': '1986-09-24', 'bio': 'Dmitry',
+                                               'mail': 'Dmitry@dmitry.ua', 'jabber': 'Dmitry',
+                                               'skype': 'Dmitry', 'other': 'Dmitry'})
+        response = self.client.get('/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertContains(response, 'Dmitry')
+        response = self.client.get('/edit/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertContains(response, 'Dmitry')
+        self.client.logout()
+        response = self.client.get('/edit/')
+        self.failUnlessEqual(response.status_code, 302)
