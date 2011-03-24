@@ -49,7 +49,6 @@ def edit_person(request):
             status = 'invalid'
         response_text = render_to_string("person_form.html", {'form': form})
         return HttpResponse(simplejson.dumps({'status': status, 'text': response_text}), mimetype='application/javascript')
-
     else:
         form = PersonForm(instance=Person.objects.get(last_name="Ganziy"))
     return render_to_response('edit_person.html',

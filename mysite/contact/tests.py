@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 class ContactTest(TestCase):
-    fixtures=['initial_data.json']
+    fixtures = ['initial_data.json']
 
     def test_http(self):
         response = self.client.get('/')
