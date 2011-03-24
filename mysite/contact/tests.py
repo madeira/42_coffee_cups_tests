@@ -3,12 +3,12 @@ from mysite.contact.models import Person
 
 
 class ContactTest(TestCase):
-    fixtures=['initial_data.json']
+    fixtures = ['initial_data.json']
 
     def test_http(self):
         response = self.client.get('/')
         self.failUnlessEqual(response.status_code, 200)
-        contact=Person.objects.get(last_name="Ganziy")
+        contact = Person.objects.get(last_name="Ganziy")
         self.assertContains(response, contact.first_name,
                             count=1, status_code=200, msg_prefix='')
         self.assertContains(response, contact.last_name,

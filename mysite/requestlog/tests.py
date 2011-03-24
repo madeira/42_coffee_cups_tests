@@ -10,7 +10,7 @@ class RequestTest(TestCase):
         request = RequestLog.objects.all()
         self.assertNotEqual(request.count, 0)
         request = RequestLog.objects.order_by('-id')[0]
-        self.assertContains(response, 'id request '+ str(request.id))
+        self.assertContains(response, 'id request ' + str(request.id))
         self.assertContains(response, request.user_ip)
         self.assertContains(response, request.link_come)
         self.assertContains(response, request.user_agent)
