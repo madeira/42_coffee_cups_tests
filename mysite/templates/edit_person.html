@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %} 
+{{ form.media }}
+<script type="text/javascript" src="/media/js/jquery.form.js"></script>
+<script type="text/javascript" src="/media/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/media/js/jquery.dp_and_form.js"></script>
+{% endblock head %}
+{% block title %}Edit contact{% endblock title %}
+{% block body %}
+<div id="message_valid" >
+    <h1>all right</h1>
+</div>
+<div id="message_invalid" >
+    <h1>error</h1>
+</div>
+<form id="myForm" action="/edit/" method="POST">
+{% csrf_token %}
+    <div id="form">
+        {% include "person_form.html" %}
+    </div>
+<input value="Save" name="Form_save" type="submit" />
+<a href="/">Cancel</a>
+</div>
+{% endblock body %}
+{% block context %}
+{% endblock context %}
