@@ -52,3 +52,11 @@ form, fieldset{
 .error{
     color:red;
 }
+#message_valid{
+display:none;
+color:green;
+}
+#message_invalid{
+display:none;
+color:red;
+}
