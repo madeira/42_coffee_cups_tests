@@ -60,3 +60,6 @@ color:green;
 display:none;
 color:red;
 }
+#id_bio{
+ max-width:250px;
+}

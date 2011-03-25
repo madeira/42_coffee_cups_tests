@@ -56,7 +56,8 @@ class ContactTest(TestCase):
         response = self.client.post('/edit/', {'first_name': '', 'last_name': 'Ganziy',
                                                'date': '1986-09', 'bio': 'Dmitry',
                                                'mail': 'Dmitry', 'jabber': 'Dmitry',
-                                               'skype': 'Dmitry', 'other': 'Dmitry'}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+                                               'skype': 'Dmitry', 'other': 'Dmitry'},
+                                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertContains(response, 'This field is required')
         self.assertContains(response, 'Enter a valid date')
         self.assertContains(response, 'Enter a valid e-mail address')
@@ -64,7 +65,8 @@ class ContactTest(TestCase):
         response = self.client.post('/edit/', {'first_name': 'Dmitry', 'last_name': 'Ganziy',
                                                'date': '1986-09-24', 'bio': 'Dmitry',
                                                'mail': 'Dmitry@dmitry.ua', 'jabber': 'Dmitry',
-                                               'skype': 'Dmitry', 'other': 'Dmitry'}, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+                                               'skype': 'Dmitry', 'other': 'Dmitry'},
+                                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         response = self.client.get('/')
         self.failUnlessEqual(response.status_code, 200)
         self.assertContains(response, 'Dmitry')
@@ -74,3 +76,8 @@ class ContactTest(TestCase):
         self.client.logout()
         response = self.client.get('/edit/')
         self.failUnlessEqual(response.status_code, 302)
+
+    def test_reversed(self):
+        self.client.login(username='admin', password='admin')
+        response = self.client.get('/edit/')
+        self.assertTrue(response.content.find('Vladimir') > response.content.find('Ganziy'))

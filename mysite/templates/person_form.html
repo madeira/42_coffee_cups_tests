@@ -1,12 +1,18 @@
-
-    {% for field in form %}
+<div id="right_collum">
+    {% for field in form reversed %}
         {% if field.errors %}
             {% for error in field.errors %}
                 <strong>{{ error|escape }}</strong>
+		<br/>
             {% endfor %}
         {% endif %}
             {{ field.label_tag }}:<br/>
             {{ field }}<br/>
             {{ field.help_text }}
+        {% if forloop.counter == 4 %}
+            </div>
+            <div id="left_collum">
+	{% endif %}
     {% endfor %}
 
+</div>
