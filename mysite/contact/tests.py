@@ -1,6 +1,7 @@
 from django.test import TestCase
 from mysite.contact.models import Person
 from django.conf import settings
+from django.template import Context, loader
 
 
 class ContactTest(TestCase):
@@ -83,8 +84,6 @@ class ContactTest(TestCase):
         self.assertTrue(response.content.find('Vladimir') > response.content.find('Ganziy'))
 
     def test_tag(self):
-        response = self.client.get('/')
-        self.assertNotContains(response, '/admin/contact/person/1/')
-        self.client.login(username='admin', password='admin')
-        response = self.client.get('/')
-        self.assertContains(response, '/admin/contact/person/1/')
+        template = loader.get_template_from_string("{% load person_tags %}{% admin_link obj %}")
+        person = Person.objects.get(pk=1)
+        self.assertEqual(template.render(Context({'obj': person})), '/admin/contact/person/1/')
