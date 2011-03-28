@@ -18,8 +18,9 @@
             {% if person  %}
 	    <div class="href" >  
               <hr/>
+              {% load person_tags %}
               {% if request_user %}
-	      <a href="logout/">logout </a>| <a href="/edit/">edit</a><br/>
+	      <a href="logout/">logout</a> | <a href="/edit/">edit</a> | <a href="{% admin_link person %}">edit person in admin</a><br/>
 	      {% else  %}
 	      <a href="/accounts/login/">login</a><br/>
 	      {% endif %}
