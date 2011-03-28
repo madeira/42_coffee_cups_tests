@@ -81,3 +81,10 @@ class ContactTest(TestCase):
         self.client.login(username='admin', password='admin')
         response = self.client.get('/edit/')
         self.assertTrue(response.content.find('Vladimir') > response.content.find('Ganziy'))
+
+    def test_tag(self):
+        response = self.client.get('/')
+        self.assertNotContains(response, '/admin/contact/person/1/')
+        self.client.login(username='admin', password='admin')
+        response = self.client.get('/')
+        self.assertContains(response, '/admin/contact/person/1/')
