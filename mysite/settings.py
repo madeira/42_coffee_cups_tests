@@ -108,6 +108,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'mysite.contact',
     'mysite.requestlog',
+    'mysite.utils',
 )
 
 LOGIN_REDIRECT_URL = '/edit/'
