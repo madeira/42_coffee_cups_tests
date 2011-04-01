@@ -7,7 +7,9 @@ import cStringIO
 class BashTest(TestCase):
 
     def test_command(self):
-        buf1 = buf2 = err = cStringIO.StringIO()
+        buf1 = cStringIO.StringIO()
+        buf2 = cStringIO.StringIO()
+        err = cStringIO.StringIO()
         call_command('setting_info', stdout=(buf1), stderr=(err))
         for model in get_models():
             mod = model.__name__
