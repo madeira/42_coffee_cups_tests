@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.test import TestCase
 from mysite.requestlog.models import RequestLog
 
@@ -15,3 +16,9 @@ class RequestTest(TestCase):
         self.assertContains(response, request.link_come)
         self.assertContains(response, request.user_agent)
         self.assertContains(response, request.host)
+
+
+class RequestStatusTest(TestCase):
+
+    def test_status(self):
+        self.assertEqual(settings.STATUS, 0)
