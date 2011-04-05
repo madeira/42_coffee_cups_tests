@@ -11,11 +11,9 @@ urlpatterns = patterns('',
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     (r'^$', "contact.views.show_person"),
     (r'^request/$', "requestlog.views.request_list"),
-    (r'^request/true/$', "requestlog.views.request_true_priority"),
-    (r'^request/false/$', "requestlog.views.request_false_priority"),
-    (r'^request/asc/$', "requestlog.views.request_asc_priority"),
-    (r'^request/desc/$', "requestlog.views.request_desc_priority"),
     (r'^processor/$', "mysite.views.show_settings"),
+    (r'^request/filter/(?P<offset>\w+)/$', "requestlog.views.request_true_false_priority"),
+    (r'^request/sorting/(?P<offset>\w+)/$', "requestlog.views.request_asc_desc_priority"),
 )
 if settings.DEBUG == True:
     urlpatterns += patterns('', (r'^%s(?P<path>.*)$' % settings.MEDIA_URL,

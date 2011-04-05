@@ -9,12 +9,12 @@ request
 </a><br/>
 <hr/>
 Filter by:
-<a href="/request/asc/"> priority</a>
- | <a href="/request/desc/">reverse priority</a> <br/>
+ <a href="/request/sorting/asc/">priority</a>
+ | <a href="/request/sorting/desc/">reverse priority</a> <br/>
 <hr/>
 Filter by:
-<a href="/request/false/"> normal logs</a>
- | <a href="/request/true/">priority logs</a>
+<a href="/request/filter/false/"> normal logs</a>
+ | <a href="/request/filter/true/">priority logs</a>
  | <a href="/request/">all logs</a> <br/>
 <hr/>
 {% for item in request %}
@@ -28,16 +28,6 @@ Filter by:
 <hr/>
 {% endfor %}
 {% for item in request2 %}
-<span> id request {{item.id}}</span><br/>
-<span>user ip {{item.user_ip}}</span><br/>
-<span>link from which came <a href="{{item.link_come}}">{{item.link_come}}</a> </span><br/>
-<span>user agent {{item.user_agent}}</span><br/>
-<span>host name {{item.host}}</span><br/>
-<span><b>Priority</b> {{item.priority}}</span><br/>
-<br/>
-<hr/>
-{% endfor %}
-{% for item in request3 %}
 <span> id request {{item.id}}</span><br/>
 <span>user ip {{item.user_ip}}</span><br/>
 <span>link from which came <a href="{{item.link_come}}">{{item.link_come}}</a> </span><br/>
