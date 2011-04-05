@@ -18,7 +18,26 @@ class RequestTest(TestCase):
         self.assertContains(response, request.host)
 
 
-class RequestStatusTest(TestCase):
+class RequestPriorityTest(TestCase):
 
-    def test_status(self):
-        self.assertEqual(settings.STATUS, 0)
+    def test_priority_settings(self):
+        self.assertEqual(settings.REQUESTLOG_DEFAULT_PRIORITY, False)
+
+    def test_priority_filters(self):
+        self.request = RequestLog.objects.create(priority='True')
+        self.request.save
+        response = self.client.get('/request/asc/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertTrue(response.content.find('True') < response.content.find('False'))
+        response = self.client.get('/request/desc/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertTrue(response.content.find('True') > response.content.find('False'))
+        response = self.client.get('/request/false/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertNotContains(response, 'True')
+        response = self.client.get('/request/true/')
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertNotContains(response, 'False')
+        response = self.client.get('/request/')
+        self.assertContains(response, 'False')
+        self.assertContains(response, 'True')
