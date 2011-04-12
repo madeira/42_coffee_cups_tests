@@ -20,23 +20,23 @@
               <hr/>
               {% load person_tags %}
               {% if request_user %}
-	      <a href="logout/">logout</a> | <a href="/edit/">edit</a> | <a href="{% admin_link person %}">edit person in admin</a><br/>
+	      <a href="{% url logout %}">logout</a> | <a href="{% url contact_edit %}">edit</a> | <a href="{% admin_link person %}">edit person in admin</a><br/>
 	      {% else  %}
-	      <a href="/accounts/login/">login</a><br/>
+	      <a href="{% url login %}">login</a><br/>
 	      {% endif %}
 	      <hr/>
             </div>
 	    <div id="right_collum">
-                <span>Name: {{person.first_name}}</span><br/>
-                <span>Last name: {{person.last_name}}</span><br/>
-                <span>Date of birth: {{person.date}}</span><br/>
-                <span>Bio: {{person.bio}}</span><br/>
+                <span>Name: {{ person.first_name }}</span><br/>
+                <span>Last name: {{ person.last_name }}</span><br/>
+                <span>Date of birth: {{ person.date }}</span><br/>
+                <span>Bio: {{ person.bio }}</span><br/>
             </div>
             <div id="left_collum">
-                <span>Email: {{person.mail}}</span><br/>
-                <span>Jabber: {{person.jabber}}</span><br/>
-                <span>Skype: {{person.skype}}</span><br/>
-                <span>Other contacts: {{person.other}}</span>
+                <span>Email: {{ person.mail }}</span><br/>
+                <span>Jabber: {{ person.jabber }}</span><br/>
+                <span>Skype: {{ person.skype }}</span><br/>
+                <span>Other contacts: {{ person.other }}</span>
             </div>
 	    {% else %}
 	    <div class="error">
@@ -45,8 +45,8 @@
 	    {% endif %}
             <div class="href" >            
               <hr/>
-              <a href="/request/">request</a><br/>
-      	      <a href="/processor/">context processor</a>
+              <a href="{% url requestlog %}">request</a><br/>
+      	      <a href="{% url processor %}">context processor</a>
             </div>
 	    {% endblock %}
         </div>

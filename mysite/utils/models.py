@@ -13,7 +13,10 @@ ACTION_CHOICES = {
 
 class Signal(models.Model):
     model_name = models.CharField(max_length=100)
-    action = models.CharField(max_length=10, choices=(('create', 'Create'), ('edit', 'Edit'), ('delete', 'Delete')))
+    action = models.CharField(max_length=10,
+                              choices=(('create', 'Create'),
+                                       ('edit', 'Edit'),
+                                       ('delete', 'Delete')))
 
 
 def action_signals(sender, **kwargs):

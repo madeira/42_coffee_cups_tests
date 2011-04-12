@@ -8,7 +8,7 @@
 
 <form method="post" action="{% url django.contrib.auth.views.login %}">
 {% csrf_token %}
-<a href="/"><-- back </a>
+<a href="{% url home %}"><-- back </a>
 <table>
 <tr>
     <td>{{ form.username.label_tag }}</td>
