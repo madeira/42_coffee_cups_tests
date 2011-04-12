@@ -7,7 +7,7 @@
 {% endblock head %}
 {% block title %}Edit contact{% endblock title %}
 {% block body %}
-<form id="myForm" action="/edit/" method="POST">
+<form id="myForm" action="{% url contact_edit %}" method="POST">
 {% csrf_token %}
 <div id="form">
   {% include "person_form.html" %}
@@ -21,7 +21,7 @@
 	</div>   
   <hr/>
   <input value="Save" name="Form_save" type="submit" />
-  <a href="/">Cancel</a>
+  <a href="{% url home %}">Cancel</a>
 </div>
 
 </div>

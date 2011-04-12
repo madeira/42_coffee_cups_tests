@@ -4,7 +4,7 @@ context processor
 {% endblock %}
 {% block body %}
 <br/>
-<a href="/">
+<a href="{% url home %}">
 <--- back
 </a><br/><br/>
 time zone: {{ settings.TIME_ZONE }}<br/>
