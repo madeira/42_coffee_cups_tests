@@ -56,20 +56,24 @@ class ContactTest(TestCase):
         self.assertEqual(response, True)
         response = self.client.get(reverse('contact_edit'))
         self.failUnlessEqual(response.status_code, 200)
-        response = self.client.post(reverse('contact_edit'), {'first_name': '', 'last_name': 'Ganziy',
-                                               'date': '1986-09', 'bio': 'Dmitry',
-                                               'mail': 'Dmitry', 'jabber': 'Dmitry',
-                                               'skype': 'Dmitry', 'other': 'Dmitry'},
-                                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        response = self.client.post(reverse('contact_edit'),
+                                    {'first_name': '', 'last_name': 'Ganziy',
+                                     'date': '1986-09', 'bio': 'Dmitry',
+                                     'mail': 'Dmitry', 'jabber': 'Dmitry',
+                                     'skype': 'Dmitry', 'other': 'Dmitry'},
+                                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertContains(response, 'This field is required')
         self.assertContains(response, 'Enter a valid date')
         self.assertContains(response, 'Enter a valid e-mail address')
         self.failUnlessEqual(response.status_code, 200)
-        response = self.client.post(reverse('contact_edit'), {'first_name': 'Dmitry', 'last_name': 'Ganziy',
-                                               'date': '1986-09-24', 'bio': 'Dmitry',
-                                               'mail': 'Dmitry@dmitry.ua', 'jabber': 'Dmitry',
-                                               'skype': 'Dmitry', 'other': 'Dmitry'},
-                                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        response = self.client.post(reverse('contact_edit'),
+                                    {'first_name': 'Dmitry',
+                                     'last_name': 'Ganziy',
+                                     'date': '1986-09-24', 'bio': 'Dmitry',
+                                     'mail': 'Dmitry@dmitry.ua',
+                                     'jabber': 'Dmitry',
+                                     'skype': 'Dmitry', 'other': 'Dmitry'},
+                                    HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         response = self.client.get(reverse('home'))
         self.failUnlessEqual(response.status_code, 200)
         self.assertContains(response, 'Dmitry')
@@ -83,9 +87,22 @@ class ContactTest(TestCase):
     def test_reversed(self):
         self.client.login(username='admin', password='admin')
         response = self.client.get(reverse('contact_edit'))
-        self.assertTrue(response.content.find('Vladimir') > response.content.find('Ganziy'))
+        self.assertTrue(response.content.find('Vladimir') >
+                        response.content.find('Ganziy'))
 
     def test_tag(self):
-        template = loader.get_template_from_string("{% load person_tags %}{% admin_link obj %}")
+        template = loader.get_template_from_string(\
+            "{% load person_tags %}{% admin_link obj %}")
         person = Person.objects.get(pk=1)
-        self.assertEqual(template.render(Context({'obj': person})), '/admin/contact/person/1/')
+        self.assertEqual(template.render(Context({'obj': person})),
+                         '/admin/contact/person/1/')
+
+    def test_js_dp(self):
+        self.client.login(username='admin', password='admin')
+        response = self.client.get(reverse('contact_edit'))
+        self.assertContains(response,
+        'type="text/javascript" src="/media/js/jquery.datepick.js"')
+        self.assertContains(response,
+        'type="text/javascript" src="/media/js/jquery.dp_and_form.js"')
+        self.assertContains(response,
+        'type="text/javascript" src="/media/js/jquery-1.5.1.min.js"')

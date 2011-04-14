@@ -7,8 +7,8 @@ class RequestLog(models.Model):
     link_come = models.TextField()
     user_agent = models.CharField(max_length=100)
     host = models.CharField(max_length=100)
-    priority = models.BooleanField(default= \
-                                   settings.REQUESTLOG_DEFAULT_PRIORITY)
+    priority = models.BooleanField(
+        default=settings.REQUESTLOG_DEFAULT_PRIORITY)
 
     def __unicode__(self):
         return self.user_ip
