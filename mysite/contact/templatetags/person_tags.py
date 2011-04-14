@@ -6,4 +6,7 @@ register = template.Library()
 
 @register.simple_tag
 def admin_link(obj):
-    return reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.module_name), args=(obj.pk, ))
+    return reverse('admin:%s_%s_change' %
+                   (obj._meta.app_label,
+                    obj._meta.module_name),
+                   args=(obj.pk, ))

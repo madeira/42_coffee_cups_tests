@@ -29,14 +29,19 @@ class RequestPriorityTest(TestCase):
         self.request.save
         response = self.client.get(reverse('requestlog_sorting', args=['asc']))
         self.failUnlessEqual(response.status_code, 200)
-        self.assertTrue(response.content.find('True') < response.content.find('False'))
-        response = self.client.get(reverse('requestlog_sorting', args=['desc']))
+        self.assertTrue(response.content.find('True')
+                        < response.content.find('False'))
+        response = self.client.get(reverse('requestlog_sorting',
+                                           args=['desc']))
         self.failUnlessEqual(response.status_code, 200)
-        self.assertTrue(response.content.find('True') > response.content.find('False'))
-        response = self.client.get(reverse('requestlog_filter', args=['false']))
+        self.assertTrue(response.content.find('True') >
+                        response.content.find('False'))
+        response = self.client.get(reverse('requestlog_filter',
+                                           args=['false']))
         self.failUnlessEqual(response.status_code, 200)
         self.assertNotContains(response, 'True')
-        response = self.client.get(reverse('requestlog_filter', args=['true']))
+        response = self.client.get(reverse('requestlog_filter',
+                                           args=['true']))
         self.failUnlessEqual(response.status_code, 200)
         self.assertNotContains(response, 'False')
         response = self.client.get(reverse('requestlog'))
